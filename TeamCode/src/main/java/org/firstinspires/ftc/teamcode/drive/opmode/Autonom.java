@@ -10,8 +10,6 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 @Autonomous
 class Autonom extends LinearOpMode
