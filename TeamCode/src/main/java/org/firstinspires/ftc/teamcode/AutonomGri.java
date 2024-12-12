@@ -7,7 +7,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
 @Autonomous
-class AutonomCuloare extends LinearOpMode
+class AutonomGri extends LinearOpMode
 {
     static final float ROBOT_LEN       = 14f; /* DE SCHIMBAT */
     static final float TILE_LEN        = 24f;
@@ -16,10 +16,10 @@ class AutonomCuloare extends LinearOpMode
     static final float INTAKE          = ROBOT_LEN / 4; /* DE SCHIMBAT */
     static final float OUTTAKE         = ROBOT_LEN / 2; /* DE SCHIMBAT */
 
-    static final Pose2d start_pos = new Pose2d(-TILE_LEN, 3*TILE_LEN - 0.5*ROBOT_LEN, Math.toRadians(270));
+    static final Pose2d start_pos = new Pose2d(TILE_LEN, 3*TILE_LEN - 0.5*ROBOT_LEN, Math.toRadians(270));
     static final Pose2d outpos    = new Pose2d(2*TILE_LEN + OUTTAKE, 2.5*TILE_LEN, Math.toRadians(-135));
 
-    static final Pose2d inpos     = new Pose2d(-2*TILE_LEN, 1.5*TILE_LEN + INTAKE, Math.toRadians(-90));
+    static final Pose2d inpos     = new Pose2d(2*TILE_LEN, 1.5*TILE_LEN + INTAKE, Math.toRadians(-90));
 
     public void runOpMode()
     {
@@ -32,7 +32,7 @@ class AutonomCuloare extends LinearOpMode
          * o functie ca sa refoloseti codul de la TeleOp.
          * */
         Trajectory t = d.trajectoryBuilder(start_pos)
-                .splineToLinearHeading(new Pose2d(2*TILE_LEN + OUTTAKE,2.5*TILE_LEN, Math.toRadians(-135)),
+                .splineToLinearHeading(new Pose2d(2*TILE_LEN + OUTTAKE, 2.5*TILE_LEN, Math.toRadians(-135)),
                         Math.toRadians(-10))
                 .addDisplacementMarker(() -> {
                     /* outake */
@@ -45,7 +45,7 @@ class AutonomCuloare extends LinearOpMode
                 .addDisplacementMarker(() -> {
                     /* outake */
                 })
-                .lineToSplineHeading(new Pose2d(inpos.getX() - BETWEEN_SAMPLES, inpos.getY(), inpos.getHeading()))
+                .lineToSplineHeading(new Pose2d(inpos.getX() + BETWEEN_SAMPLES, inpos.getY(), inpos.getHeading()))
                 .addDisplacementMarker(() -> {
                     /* intake */
                 })
@@ -53,8 +53,8 @@ class AutonomCuloare extends LinearOpMode
                 .addDisplacementMarker(() -> {
                     /* outake */
                 })
-                .lineToSplineHeading(new Pose2d(inpos.getX() - INTAKE -(TILE_LEN - 2*BETWEEN_SAMPLES),
-                        TILE_LEN + 0.5*SAMPLES_WITH, Math.toRadians(-180)))
+                .lineToSplineHeading(new Pose2d(inpos.getX() + 2*BETWEEN_SAMPLES - OUTTAKE - INTAKE,
+                        TILE_LEN + 0.5*SAMPLES_WITH, Math.toRadians(0)))
                 .addDisplacementMarker(() -> {
                     /* intake */
                 })
