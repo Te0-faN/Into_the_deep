@@ -16,7 +16,7 @@ class AutonomGri extends LinearOpMode
     static final float INTAKE          = ROBOT_LEN / 4; /* DE SCHIMBAT */
     static final float OUTTAKE         = ROBOT_LEN / 2; /* DE SCHIMBAT */
 
-    static final Pose2d start_pos = new Pose2d(TILE_LEN, 3*TILE_LEN - 0.5*ROBOT_LEN, Math.toRadians(270));
+    static final Pose2d start_pos = new Pose2d(TILE_LEN - 0.5*ROBOT_LEN, 3*TILE_LEN - 0.5*ROBOT_LEN, Math.toRadians(270));
     static final Pose2d outpos    = new Pose2d(2*TILE_LEN + OUTTAKE, 2.5*TILE_LEN, Math.toRadians(-135));
 
     static final Pose2d inpos     = new Pose2d(2*TILE_LEN, 1.5*TILE_LEN + INTAKE, Math.toRadians(-90));
