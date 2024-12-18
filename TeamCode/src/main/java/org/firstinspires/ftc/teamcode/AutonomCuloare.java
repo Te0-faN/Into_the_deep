@@ -6,8 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import org.firstinspires.ftc.teamcode.drive.SampleMecanumDrive;
 
-@Autonomous
-class AutonomCuloare extends LinearOpMode
+public class AutonomCuloare extends LinearOpMode
 {
     static final float ROBOT_LEN       = 14f; /* DE SCHIMBAT */
     static final float TILE_LEN        = 24f;
